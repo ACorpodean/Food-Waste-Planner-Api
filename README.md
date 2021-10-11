@@ -5,6 +5,11 @@ Node JS CRUD API example
 - [x] store info in [JSON file](data/teams.json)
 - [x] store info in DB (MYSQL)
 
+## Team
+- [Ichim-Anchidin Maximilian](https://github.com/max-anchidin/)
+- [Corpodean Andrei](https://github.com/ACorpodean)
+- [Chișiu Ionuț](https://github.com/IonussCh)
+
 ## Install
 
 ```sh
