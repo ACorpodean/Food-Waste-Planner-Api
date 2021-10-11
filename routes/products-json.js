@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var fs = require("fs");
 
-const DATA_PATH = "data/teams.json";
+const DATA_PATH = "data/products.json";
 
 /**
  * IMPORTANT: add content type headers to be able to use req.body.*
@@ -14,33 +14,33 @@ const DATA_PATH = "data/teams.json";
  */
 router.get("/", function (req, res, next) {
   const content = fs.readFileSync(DATA_PATH);
-  const teams = JSON.parse(content);
-  res.json(teams);
+  const products = JSON.parse(content);
+  res.json(products);
 });
 
 /**
  *
  */
 router.post("/create", function (req, res, next) {
-  const promotion = req.body.promotion;
-  const members = req.body.members;
   const name = req.body.name;
-  const url = req.body.url;
+  const expiration = req.body.expiration;
+  const weight = req.body.weight;
+  const price = req.body.price;
 
   let content = fs.readFileSync(DATA_PATH);
-  const teams = JSON.parse(content);
+  const products = JSON.parse(content);
 
   const id = Math.random().toString(36).substring(7) + new Date().getTime();
 
-  teams.push({
+  products.push({
     id,
-    promotion,
-    members,
     name,
-    url
+    expiration,
+    weight,
+    price
   });
 
-  content = JSON.stringify(teams, null, 2);
+  content = JSON.stringify(products, null, 2);
   fs.writeFileSync(DATA_PATH, content);
 
   res.json({ success: true, id });
@@ -53,13 +53,13 @@ router.delete("/delete", function (req, res, next) {
   const id = req.body.id;
 
   let content = fs.readFileSync(DATA_PATH);
-  const teams = JSON.parse(content);
+  const products = JSON.parse(content);
 
-  const remainingTeams = teams.filter(function (team) {
-    return team.id != id;
+  const remainingProducts = products.filter(function (product) {
+    return product.id != id;
   });
 
-  content = JSON.stringify(remainingTeams, null, 2);
+  content = JSON.stringify(remainingProducts, null, 2);
   fs.writeFileSync(DATA_PATH, content);
 
   res.json({ success: true });
@@ -70,25 +70,25 @@ router.delete("/delete", function (req, res, next) {
  */
 router.put("/update", function (req, res, next) {
   const id = req.body.id;
-  const promotion = req.body.promotion;
-  const members = req.body.members;
   const name = req.body.name;
-  const url = req.body.url;
+  const expiration = req.body.expiration;
+  const weight = req.body.weight;
+  const price = req.body.price;
 
   let content = fs.readFileSync(DATA_PATH);
-  const teams = JSON.parse(content);
+  const products = JSON.parse(content);
 
-  const contact = teams.find(function (team) {
-    return team.id == id;
+  const match = products.find(function (product) {
+    return product.id == id;
   });
-  if (contact) {
-    contact.promotion = promotion;
-    contact.members = members;
-    contact.name = name;
-    contact.url = url;
+  if (match) {
+    match.name = name;
+    match.expiration = expiration;
+    match.weight = weight;
+    match.price = price;
   }
 
-  content = JSON.stringify(teams, null, 2);
+  content = JSON.stringify(products, null, 2);
   fs.writeFileSync(DATA_PATH, content);
 
   res.json({ success: true });
