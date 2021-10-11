@@ -29,19 +29,5 @@
     "expiration": "2021-10-13",
     "weight": "4",
     "price": "50"
-  },
-  {
-    "id": "u986ke1633985683572",
-    "name": "Unknown",
-    "expiration": "2021-10-13",
-    "weight": "4",
-    "price": "50"
-  },
-  {
-    "id": "9p33as1633985773587",
-    "name": "Unknown",
-    "expiration": "2021-10-29",
-    "weight": "4",
-    "price": "50"
   }
 ]
