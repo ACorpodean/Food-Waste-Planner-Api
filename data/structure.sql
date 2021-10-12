@@ -1,9 +1,9 @@
-CREATE TABLE IF NOT EXISTS teams 
+CREATE TABLE IF NOT EXISTS products 
 (
   id INT NOT NULL AUTO_INCREMENT,
-  promotion text NOT NULL,
-  members TEXT NOT NULL,
-  name TEXT NOT NULL,
-  url TEXT NOT NULL,
+  name text NOT NULL,
+  expiration date NOT NULL,
+  weight TEXT NOT NULL,
+  price TEXT NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE = InnoDB;

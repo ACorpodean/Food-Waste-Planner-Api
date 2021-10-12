@@ -29,5 +29,12 @@
     "expiration": "2021-10-13",
     "weight": "4",
     "price": "50"
+  },
+  {
+    "id": "0flbhg1634006119468",
+    "name": "name 3",
+    "expiration": "2021-10-29",
+    "weight": "4",
+    "price": "50"
   }
 ]
