@@ -40,7 +40,14 @@ router.get("/install", function (req, res, next) {
 router.get("/", function (req, res, next) {
   pool.getConnection(function (err, connection) {
     if (err) throw err;
-    const sql = `SELECT id, name, expiration, weight, price FROM products`;
+    const sql = `SELECT 
+        id, 
+        name,
+        DATE_FORMAT(expiration, "%Y-%m-%d") as expiration,
+        expiration < now() as expired,
+        weight,
+        price 
+      FROM products`;
     connection.query(sql, function (err, results) {
       if (err) {
         console.error(err);
