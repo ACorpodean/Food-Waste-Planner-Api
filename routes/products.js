@@ -40,7 +40,7 @@ router.get("/install", function (req, res, next) {
 router.get("/", function (req, res, next) {
   pool.getConnection(function (err, connection) {
     if (err) throw err;
-    const sql = `SELECT id, name, DATE_FORMAT(expiration, "%Y-%m-%d") as expiration, weight, price FROM products`;
+    const sql = `SELECT id, name, expiration, weight, price FROM products`;
     connection.query(sql, function (err, results) {
       if (err) {
         console.error(err);
@@ -61,12 +61,12 @@ router.post("/create", function (req, res, next) {
   const name = req.body.name;
   const expiration = req.body.expiration;
   const weight = req.body.weight;
-  const url = req.body.url;
+  const price = req.body.price;
 
   pool.getConnection(function (err, connection) {
     if (err) throw err;
-    const sql = `INSERT INTO products (id, name, expiration, weight, url) VALUES (NULL, ?, ?, ?, ?);`;
-    connection.query(sql, [name, expiration, weight, url], function (err, results) {
+    const sql = `INSERT INTO products (id, name, expiration, weight, price) VALUES (NULL, ?, ?, ?, ?);`;
+    connection.query(sql, [name, expiration, weight, price], function (err, results) {
       if (err) throw err;
       const id = results.insertId;
       connection.release();
@@ -100,14 +100,15 @@ router.delete("/delete", function (req, res, next) {
  */
 router.put("/update", function (req, res, next) {
   const id = req.body.id;
+  const name = req.body.name;
   const expiration = req.body.expiration;
   const weight = req.body.weight;
-  const url = req.body.url;
+  const price = req.body.price;
 
   pool.getConnection(function (err, connection) {
     if (err) throw err;
-    const sql = `UPDATE products SET expiration=?, name=?, url=? WHERE id=?`;
-    connection.query(sql, [expiration, name, url, id], function (err, results) {
+    const sql = `UPDATE products SET name=?, expiration=?, weight=?, price=? WHERE id=?`;
+    connection.query(sql, [name, expiration, weight, price, id], function (err, results) {
       if (err) throw err;
       connection.release();
       res.json({ success: true });
