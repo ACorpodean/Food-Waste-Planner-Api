@@ -43,11 +43,33 @@ router.get("/", function (req, res, next) {
     const sql = `SELECT 
         id, 
         name,
-        DATE_FORMAT(expiration, "%Y-%m-%d") as expiration,
-        expiration < now() as expired,
+        DATE_FORMAT(expiration, "%m-%d-%Y") as expiration,
         weight,
         price 
       FROM products`;
+    connection.query(sql, function (err, results) {
+      if (err) {
+        console.error(err);
+        connection.release();
+        res.send(err);
+        return;
+      }
+      connection.release();
+      res.json(results);
+    });
+  });
+});
+
+router.get("/expired", function (req, res, next) {
+  pool.getConnection(function (err, connection) {
+    if (err) throw err;
+    const sql = `SELECT  
+      id, 
+      name,
+      DATE_FORMAT(expiration, "%m-%d-%Y") as expiration,
+      weight,
+      price 
+     FROM products WHERE expiration < now() = 1`;
     connection.query(sql, function (err, results) {
       if (err) {
         console.error(err);
