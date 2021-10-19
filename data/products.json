@@ -1,40 +1,6 @@
-[
-  {
-    "name": "Varza",
-    "expiration": "11.11.2011",
-    "weight": "100",
-    "price": "5"
-  },
-  {
-    "name": "Ardei",
-    "expiration": "11.11.2011",
-    "weight": "100",
-    "price": "5"
-  },
-  {
-    "name": "Urzica",
-    "expiration": "11.11.2011",
-    "weight": "100",
-    "price": "5"
-  },
-  {
-    "name": "Paprica",
-    "expiration": "11.11.2011",
-    "weight": "100",
-    "price": "5"
-  },
-  {
-    "id": "zv6s9l1633985506056",
-    "name": "c",
-    "expiration": "2021-10-13",
-    "weight": "4",
-    "price": "50"
-  },
-  {
-    "id": "0flbhg1634006119468",
-    "name": "name 3",
-    "expiration": "2021-10-29",
-    "weight": "4",
-    "price": "50"
-  }
-]
+[{"id":7,"name":"varza","expiration":"10-11-2021","expired":1,"weight":"3500","price":"12"},
+  {"id":8,"name":"ardei","expiration":"10-07-2021","expired":1,"weight":"1000","price":"7"},
+  {"id":9,"name":"ciuperci","expiration":"10-22-2021","expired":0,"weight":"100","price":"8"},
+  {"id":10,"name":"mazare","expiration":"10-03-2021","expired":1,"weight":"1000","price":"12"},
+  {"id":12,"name":"rosii","expiration":"09-28-2021","expired":1,"weight":"1000","price":"5"},
+  {"id":13,"name":"ridichi","expiration":"10-30-2021","expired":0,"weight":"100","price":"8"}]
