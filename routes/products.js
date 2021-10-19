@@ -44,6 +44,7 @@ router.get("/", function (req, res, next) {
         id, 
         name,
         DATE_FORMAT(expiration, "%m-%d-%Y") as expiration,
+        expiration < now() as expired,
         weight,
         price 
       FROM products`;
@@ -67,6 +68,7 @@ router.get("/expired", function (req, res, next) {
       id, 
       name,
       DATE_FORMAT(expiration, "%m-%d-%Y") as expiration,
+      expiration < now() as expired,
       weight,
       price 
      FROM products WHERE expiration < now() = 1`;
