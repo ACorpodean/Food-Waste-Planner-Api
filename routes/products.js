@@ -44,6 +44,7 @@ router.get("/", function (req, res, next) {
         id, 
         name,
         DATE_FORMAT(expiration, "%m-%d-%Y") as expiration,
+        DATE_FORMAT(expiration, "%Y-%m-%d") as expirationUpdate,
         expiration < now() as expired,
         weight,
         price 
@@ -68,6 +69,7 @@ router.get("/expired", function (req, res, next) {
       id, 
       name,
       DATE_FORMAT(expiration, "%m-%d-%Y") as expiration,
+      DATE_FORMAT(expiration, "%Y-%m-%d") as expirationUpdate,
       expiration < now() as expired,
       weight,
       price 
