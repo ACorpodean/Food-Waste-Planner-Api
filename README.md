@@ -16,7 +16,7 @@ Node JS CRUD API example
 git clone https://github.com/ACorpodean/node-api.git OPTINAL : name of folder > food-waste-planner-api
 Open a comamnd prompt and navigate to directory cd node-api(default name) / food-waste-planner-api
 In command prompt run command npm install
-When npm install is succesfull - run command > npm run devstart for usage 
+When npm install is successful - run command > npm run devstart for usage 
 ```
 
 
