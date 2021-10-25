@@ -16,13 +16,16 @@ Node JS CRUD API example
 git clone https://github.com/ACorpodean/node-api.git OPTINAL : name of folder > food-waste-planner-api
 Open a comamnd prompt and navigate to directory cd node-api(default name) / food-waste-planner-api
 In command prompt run command npm install
+When npm install is succesfull - run command > npm run devstart for usage 
 ```
 
 
 ## JS Usage
 
 ```sh
-npm run devstart
+On every use after the first one:
+Open command prompt and navigate to cd node-api(default name) / food-waste-planner-api
+In command prompt run command > npm run devstart
 ```
 
 ### DB (MySQL) as storage
