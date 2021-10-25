@@ -15,12 +15,9 @@ Node JS CRUD API example
 ```sh
 git clone https://github.com/ACorpodean/node-api.git food-waste-planner-api
 cd food-waste-planner-api
+npm install
+npm run devstart
 ```
- - Open a comamnd prompt and navigate to directory cd food-waste-planner-api
- - In command prompt run command npm install
- - When npm install is successful - run command > npm run devstart for usage 
-
-
 
 ## JS Usage
 
