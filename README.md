@@ -10,13 +10,13 @@ Node JS CRUD API example
 - [Corpodean Andrei](https://github.com/ACorpodean)
 - [Chișiu Ionuț](https://github.com/IonussCh)
 
-## Install
+## Install (On first Usage)
 
 ```sh
-git clone https://github.com/ACorpodean/node-api.git food-waste-planner-api
+git clone https://github.com/ACorpodean/node-api.git OPTINAL : name of folder > food-waste-planner-api
+Open a comamnd prompt and navigate to directory cd node-api(default name) / food-waste-planner-api
+In command prompt run command npm install
 ```
-cd node-api
-npm install
 
 
 ## JS Usage
@@ -27,9 +27,9 @@ npm run devstart
 
 ### DB (MySQL) as storage
 
-Team members are stored mysql
+Products are stored mysql
 
 - configure user & pass for mysql connection [routes/products-db.js](routes/products-db.js)
-- create a database named **products**
+- create a database named **food_planner**
 - run [http://localhost:3000/products/install](http://localhost:3000/products/install)
 - now you can any other CRUD operations (the same as for json but change url **"products-json" -> "products"**)
