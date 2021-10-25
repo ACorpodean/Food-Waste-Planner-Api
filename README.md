@@ -14,9 +14,10 @@ Node JS CRUD API example
 
 ```sh
 git clone https://github.com/ACorpodean/node-api.git food-waste-planner-api
+```
 cd node-api
 npm install
-```
+
 
 ## JS Usage
 
