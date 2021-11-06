@@ -38,9 +38,11 @@ router.get("/install", function (req, res, next) {
  *
  */
 router.get("/", function (req, res, next) {
+  const expireDate = req.query.expireDate;
+  console.log(expireDate);
   pool.getConnection(function (err, connection) {
     if (err) throw err;
-    const sql = `SELECT 
+    let sql = `SELECT 
         id, 
         name,
         DATE_FORMAT(expiration, "%m-%d-%Y") as expiration,
@@ -49,7 +51,10 @@ router.get("/", function (req, res, next) {
         weight,
         price 
       FROM products`;
-    connection.query(sql, function (err, results) {
+      if(expireDate) {
+        sql += ' WHERE expiration <= ?';
+      }
+    connection.query(sql,[expireDate], function (err, results) {
       if (err) {
         console.error(err);
         connection.release();
@@ -73,7 +78,8 @@ router.get("/expired", function (req, res, next) {
       expiration < now() as expired,
       weight,
       price 
-     FROM products WHERE expiration < now() = 1`;
+     FROM products 
+     WHERE expiration < now() = 1`;
     connection.query(sql, function (err, results) {
       if (err) {
         console.error(err);
